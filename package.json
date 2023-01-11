@@ -1,0 +1,24 @@
+{
+  "name": "blog_f8_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NgTheHng1/nodejs_blog_f8_project.git"
+  },
+  "author": "hungnguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NgTheHng1/nodejs_blog_f8_project/issues"
+  },
+  "homepage": "https://github.com/NgTheHng1/nodejs_blog_f8_project#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
