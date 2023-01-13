@@ -1,0 +1,134 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);
+@import 'variables';
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: #f5f5f5;
+}
+
+@media only screen and (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+
+.solid-horizontal-divider{
+    border-top: 3px solid rgb(70, 60, 60);
+    opacity: 100;
+}
+
+.login-box {
+    //https://i.imgur.com/73BxBuI.png
+    background: url(https://static.vecteezy.com/system/resources/previews/001/984/861/original/abstract-blue-geometric-circles-overlapping-background-with-light-blue-free-vector.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+    margin: 50px auto;
+    min-height: 700px;
+    -webkit-box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-family: "Script MT";
+    font-size: 54px;
+    text-align: center;
+    color: #888888;
+    margin-bottom: 50px;
+}
+
+.logo .logo-font {
+    color: #3BC3FF;
+}
+
+@media only screen and (max-width: 767px) {
+    .logo {
+        font-size: 34px;
+    }
+}
+
+.header-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.login-form {
+    .form-control {
+        border-radius: $input-btn-border;
+        margin-bottom: 30px;
+    }
+
+    .form-group {
+        position: relative;
+
+        .forgot-password {
+            position: absolute;
+            top: 6px;
+            right: 15px;
+            text-decoration: none;
+        }
+
+        .form-check-input {
+            margin-bottom: 30px;
+        }
+
+        .form-select:hover{
+            cursor: pointer;
+        }
+
+        .btn{
+            border-radius: $input-btn-border;
+        }
+    }
+}
+
+.login-form {
+    .btn {
+        border-radius: 0;
+        -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+    .btn.btn-primary {
+        background: #3BC3FF;
+        border-color: #31c0ff;
+    }
+}
+
+.slider-feature-card {
+    background: #fff;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    -webkit-box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+
+    img {
+        height: 80px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    h3,
+    p {
+        margin-bottom: 30px;
+    }
+}
+
+.carousel-indicators {
+    bottom: -50px;
+
+    li {
+        cursor: pointer;
+    }
+}
