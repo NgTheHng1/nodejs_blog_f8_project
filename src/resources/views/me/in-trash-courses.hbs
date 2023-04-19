@@ -1,0 +1,96 @@
+<div class="mt-4">
+    <div>
+        <a href="/me/stored/courses">Go back</a>
+        <h2>Removed Courses</h2>
+    </div>
+    <table class="table" align="center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tên khóa học </th>
+                <th scope="col">Trình độ</th>
+                <th scope="col">Thời gian tạo</th>
+                <th scope="col" style="padding-left: 1.5rem">Chỉnh sửa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each courses}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td> {{this.name}} </td>
+                <td> {{this.level}} </td>
+                <td> {{this.createdAt}} </td>
+                <td>
+                    <a href="/courses/{{this._id}}/edit" data-id="{{this._id}}"
+                        class="btn btn-link btn-restore">Restore</a>
+                    <br>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#delete-course-modal" data-id="{{this._id}}"
+                        class="btn btn-link">Remove permanently</a>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="5" class="text-center">
+                    Your trash can of courses cleaned.
+                    <a href="/me/stored/courses">Click to go back list of courses.</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{!-- Hidden form making Delete method request --}}
+<form id="form-course-delete" method="POST"></form>
+<form id="form-course-restore" method="POST"></form>
+
+{{!-- Confirmation for deleting a document --}}
+<div id="delete-course-modal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Remove this course?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure to remove this course?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-delete-course" type="button" class="btn btn-danger" data-bs-dismiss="modal">Ok</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var courseId
+        var formDelete = document.getElementById('form-course-delete')
+        var formRestore = document.getElementById('form-course-restore')
+        var btnDeleteCourse = document.getElementById('btn-delete-course')
+        var btnRestore = $('.btn-restore')
+        var descrease = 3
+
+        //Pass id of course to modal when open confirming modal
+        $('#delete-course-modal').on('show.bs.modal', (event) => {
+            var button = $(event.relatedTarget)
+            courseId = button.data('id')
+        })
+
+
+        //Listen when click 'ok' to confirm deleting permantly a course
+        btnDeleteCourse.onclick = () => {
+            formDelete.action = '/courses/' + courseId + '/delete-permanently?_method=DELETE'
+            formDelete.submit()
+        }
+
+        //Restore button clicked
+        btnRestore.click(function (e) {
+            e.preventDefault()
+            let courseIdRestore = $(this).data('id')
+            formRestore.action = '/courses/' + courseIdRestore + '/restore?_method=PATCH'
+            formRestore.submit()
+        })
+    })
+</script>

@@ -12,29 +12,29 @@
                 <div class="col-sm-6">
                     <br>
                     <h3 class="header-title">LOGIN</h3>
-                    <form class="login-form">
+                    <form class="login-form" method="POST" action="">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email or UserName">
+                            <input id="username" name="username" type="text" class="form-control" placeholder="UserName">
                         </div>
                         <div class="form-group">
-                            <input type="Password" class="form-control" placeholder="Password">
+                            <input id="password" name="password" type="Password" class="form-control" placeholder="Password">
                             <a href="#!" class="forgot-password">Forgot Password?</a>
                         </div>
                         <hr class="solid-horizontal-divider">
                         <div class="form-group">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <input id="isInformed" name="isInformed" type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Keep me informed</label>
                         </div>
                         <div class="form-group">
-                            <select class="form-select form-control" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select id="gender" name="gender" class="form-select form-control" aria-label="Default select example">
+                                <option value="" selected>Choose your gender</option>
+                                <option value="1">Male</option>
+                                <option value="2">Femal</option>
+                                <option value="3">Others</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block">LOGIN</button>
+                            <button type="submit" class="btn btn-primary btn-block">LOGIN</button>
                         </div>
                         <div class="form-group">
                             <div class="text-center">New Member? <a href="#!">Sign up Now</a></div>
